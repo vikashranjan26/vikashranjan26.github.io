@@ -1,0 +1,27 @@
+- name:
+    detail: M-tech at University of Hyderabad
+    i18n: M-tech
+  desc:
+    detail: From July 2017 to July 2019, I am enrolled for m-tech in artificial intelligence.
+    i18n: mtech_des
+  date:
+    detail: July. 2017 - July. 2019
+    i18n: mtech_date
+  job:
+    detail: M-tech Student
+    i18n: mtech_job
+  icon: fa-search
+
+- name:
+    detail: B-tech at Cochin University of Science and Technology. 
+    i18n: btech
+  desc:
+    detail: In Apr. 2016, I graduated from a Cochin University of Science and Technology(CUSAT). My final thesis "Computer aided process plan".
+    i18n: btech_des
+  date:
+    detail: July. 2012 - Apr. 2016
+    i18n: ater_date
+  job:
+    detail: B-tech Student
+    i18n: ater_job
+  icon: fa-book
