@@ -1,24 +1,25 @@
 # Welcome to Jekyll!
 
 # Website settings
-title: "G. Lemaitre"
-description: "Personal website of Guillaume Lemaitre"
-keywords: "glemaitre,guillaume,lemaitre,medical,imaging,prostate"
+title: "VIKASH RANJAN"
+description: "Personal website of Vikash Ranjan"
+keywords: "vikash,ranjan,vikku,ml,imaging,capp"
 baseurl: "/"
-url: "http://glemaitre.github.io"
+url: "http://vikashranjan26.github.io"
 # url: "http://127.0.0.1:4000"
 
 # author
 author:
-  name: 'Lemaitre'
-  first_name: 'Guillaume'
-  last_name: 'Lemaitre'
-  email: 'g.lemaitre58@gmail.com'
-  linkedin_username: 'https://www.linkedin.com/in/guillaume-lemaitre-b9404939'
-  github_username: 'glemaitre'
-  head_img: 'static/img/landing/picture.png'
-  desc: 'I am a researcher focusing on medical imaging, pattern recogntion, and machine learning. I strive for open source and data.'
-
+  name: 'Ranjan'
+  first_name: 'Vikash'
+  last_name: 'Ranjan'
+  email: 'vsb1905@gmail.com'
+  linkedin_username: 'https://www.linkedin.com/in/vikash-ranjan-491998a0/'
+  github_username: 'vikashranjan26'
+  head_img: 'static/img/landing/2.jpg'
+  desc:
+  detail: I am a learner focusing on computer programming,machine learning,text processing,image processing, pattern recogntion.I strive for open source and data.
+  i18n: details
 # sections
 sections:
   - id: 'about-me'
@@ -44,12 +45,6 @@ sections:
     name: 'Projects'
     tpl: 'projects.html'
     css: 'project'
-
-  - id: 'publications'
-    i18n: 'nav.publications'
-    name: 'Publications'
-    tpl: 'publications.html'
-    css: 'publications'
 
 # localization
 languages:
