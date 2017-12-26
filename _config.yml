@@ -17,9 +17,8 @@ author:
   linkedin_username: 'https://www.linkedin.com/in/vikash-ranjan-491998a0/'
   github_username: 'vikashranjan26'
   head_img: 'static/img/landing/2.jpg'
-  desc:
-  detail: I am a learner focusing on computer programming,machine learning,text processing,image processing, pattern recogntion.I strive for open source and data.
-  i18n: details
+  desc: 'I am a learner focusing on computer programming,machine learning,text processing,image processing, pattern recogntion.I strive for open source and data.'
+  
 # sections
 sections:
   - id: 'about-me'
