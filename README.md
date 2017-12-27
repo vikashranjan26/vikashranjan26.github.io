@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-# vikashranjan26.github.io
+My pesonal website
+<http://www.vikashranjan26.github.io>
 =======
 # Jalpc. [![Analytics](https://ga-beacon.appspot.com/UA-73784599-1/welcome-page)](https://github.com/Jack614/jalpc_jekyll_theme)
 
@@ -7,9 +7,6 @@
 [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badge/)
 
-<http://www.jack003.com>
-
-![Blog](blog.gif)
 
 This is a simple, beautiful and swift theme for Jekyll. It's mobile first, fluidly responsive, and delightfully lightweight.
 
@@ -220,10 +217,6 @@ I use [bshare](http://www.bshare.cn/) to share my blog on other social network p
 ### Search engines
 
 I use javascript to realize blog search,you can double click `Ctrl` or click the icon at lower right corner of the page,the detail you can got to this repo: <https://github.com/androiddevelop/jekyll-search>.
-
-Just use it.
-
-![search](search.gif)
 
 ### CNAME
 
