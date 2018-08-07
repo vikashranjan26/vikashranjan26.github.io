@@ -209,7 +209,7 @@
                 <div class="ibox-content">
                     <div class="pull-right">
                     	
-                        	<button class="btn btn-white btn-xs" type="button">python</button>
+                        	<button class="btn btn-white btn-xs" type="button">Python</button>
                         
                     </div>
                     <div class="text-center article-title">
@@ -226,57 +226,57 @@
 
 <h6 id="方法一">方法一：</h6>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">li</span><span class="p">:</span>
     <span class="k">print</span> <span class="s">'index:'</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="s">'element:'</span><span class="p">,</span> <span class="n">i</span>
     <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h6 id="方法二">方法二：</h6>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)):</span>
     <span class="k">print</span> <span class="s">'index:'</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s">'element:'</span><span class="p">,</span> <span class="n">li</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h6 id="方法三">方法三：</h6>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
     <span class="k">print</span> <span class="s">'index:'</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="s">'element:'</span><span class="p">,</span> <span class="n">li</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h6 id="方法四">方法四：</h6>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)),</span> <span class="n">li</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)),</span> <span class="n">li</span><span class="p">):</span>
     <span class="k">print</span> <span class="s">'index:'</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s">'element:'</span><span class="p">,</span> <span class="n">e</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h6 id="方法五">方法五：</h6>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
     <span class="k">print</span> <span class="s">'index:'</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s">'element:'</span><span class="p">,</span> <span class="n">e</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <p>对于字典便利迭代则使用如下方法：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">dict1</span><span class="p">:</span>
     <span class="k">print</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h4 id="使用with自动关闭资源">⑦使用with自动关闭资源</h4>
 
 <p>文件写入一例：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; f = open('test.txt', 'w')
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; f = open('test.txt', 'w')
 &gt;&gt;&gt; f.write('test')
-</code></pre></div>
+</code></pre></div></div>
 
 <p>这样结束会发现文件并没有内容，原因是在操作完成后忘记关闭了，这是一个常识，二使用with就不会出现这样的情况：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'test.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'test.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'test'</span><span class="p">)</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <p>with语句可以在代码块执行完毕后还原进入该代码块的现场。包含有with语句的代码块的执行过程如下：</p>
 
@@ -317,7 +317,7 @@
 
 <p>自定义上下文管理器一例：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">print</span> <span class="s">'entering...'</span>
         
@@ -332,11 +332,11 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">print</span> <span class="s">'other error'</span>
             <span class="k">return</span> <span class="bp">True</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <p>引用此class：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; with  MyClass():
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; with  MyClass():
 •••     print 'testing...'
 •••     raise(ValueError)
 •••
@@ -353,7 +353,7 @@ testing...
 leaving...
 no exceptions!
 &gt;&gt;&gt;
-</code></pre></div>
+</code></pre></div></div>
 
 <p>除了<code class="highlighter-rouge">__enter__()</code>和<code class="highlighter-rouge">__exit__()</code>方法，还有<code class="highlighter-rouge">contextlib</code>模块可以辅助上下文管理，该模块是通过Generator实现的，contextlib中的contextmanager作为装饰器来提供一种针对函数级别的上下文管理机制，可以直接说作用函数\对象而不用去关心<code class="highlighter-rouge">__enter__()</code>和<code class="highlighter-rouge">__exit__()</code>方法的具体实现。具体可以百度。</p>
 

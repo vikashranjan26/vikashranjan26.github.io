@@ -209,7 +209,7 @@
                 <div class="ibox-content">
                     <div class="pull-right">
                     	
-                        	<button class="btn btn-white btn-xs" type="button">linux</button>
+                        	<button class="btn btn-white btn-xs" type="button">Linux</button>
                         
                     </div>
                     <div class="text-center article-title">
@@ -226,9 +226,9 @@
 
 <p>例如，我们创建了一个名字为login的Cookie来包含访问者的信息，创建Cookie时，服务器端的Header如下面所示，这里假设访问者的注册名是“Michael Jordan”，同时还对所创建的Cookie的属性如path、domain、expires等进行了指定。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Set-Cookie:login=Michael Jordan;path=/;domain=msn.com; 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Set-Cookie:login=Michael Jordan;path=/;domain=msn.com; 
 expires=Monday,01-Mar-99 00:00:01 GMT
-</code></pre></div>
+</code></pre></div></div>
 
 <p>上面这个Header会自动在浏览器端计算机的Cookie文件中添加一条记录。浏览器将变量名为“login”的Cookie赋值为“Michael Jordon”。注意，在实际传递过程中这个Cookie的值是经过了URLEncode方法的URL编码操作的。</p>
 
@@ -272,7 +272,7 @@ expires=Monday,01-Mar-99 00:00:01 GMT
 
 <p>粗略配置如下 tomcat/server.xml</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"
         channelSendOptions="8"&gt;
   &lt;Manager className="org.apache.catalina.ha.session.DeltaManager"
     expireSessionsOnShutdown="false"
@@ -301,7 +301,7 @@ expires=Monday,01-Mar-99 00:00:01 GMT
   &lt;ClusterListener className="org.apache.catalina.ha.session.JvmRouteSessionIDBinderListener"/&gt;
   &lt;ClusterListener className="org.apache.catalina.ha.session.ClusterSessionListener"/&gt;
 &lt;/Cluster&gt;
-</code></pre></div>
+</code></pre></div></div>
 
 <h6 id="二使用数据库持久化session">二、使用数据库持久化session</h6>
 
@@ -317,7 +317,7 @@ expires=Monday,01-Mar-99 00:00:01 GMT
 
 <p>conf/context.xml添加</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
      memcachedNodes="n1:192.168.100.208:11211 n2:192.168.100.208:11311"     
   lockingMode="auto"
   sticky="false" 
@@ -326,14 +326,14 @@ expires=Monday,01-Mar-99 00:00:01 GMT
   sessionBackupTimeout= "100"      
   transcoderFactoryClass="de.javakaffee.web.msm.JavaSerializationTranscoderFactory"    
     /&gt;
-</code></pre></div>
+</code></pre></div></div>
 
 <p>lib增加jar包：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>spymemcached-2.10.3.jar
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spymemcached-2.10.3.jar
 memcached-session-manager-1.7.0.jar
 memcached-session-manager-tc7-1.7.0.jar
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>javolution序列化tomcat配置</li>
@@ -341,7 +341,7 @@ memcached-session-manager-tc7-1.7.0.jar
 
 <p>conf/context.xml添加</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
      memcachedNodes="n1:192.168.100.208:11211 n2:192.168.100.208:11311"   
   lockingMode="auto"
   sticky="false" 
@@ -351,18 +351,18 @@ memcached-session-manager-tc7-1.7.0.jar
   copyCollectionsForSerialization="true"   
   transcoderFactoryClass="de.javakaffee.web.msm.serializer.javolution.JavolutionTranscoderFactory"    
     /&gt;
-</code></pre></div>
+</code></pre></div></div>
 
 <p>lib增加jar包</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>msm-javolution-serializer-cglib-1.3.0.jar
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>msm-javolution-serializer-cglib-1.3.0.jar
 msm-javolution-serializer-jodatime-1.3.0.jar
 spymemcached-2.10.3.jar
 javolution-5.4.3.1.jar
 msm-javolution-serializer-1.7.0.jar
 memcached-session-manager-1.7.0.jar
 memcached-session-manager-tc7-1.7.0.jar
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>xstream序列化tomcat配置</li>
@@ -370,7 +370,7 @@ memcached-session-manager-tc7-1.7.0.jar
 
 <p>conf/context.xml添加</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
      memcachedNodes="n1:192.168.100.208:11211 n2:192.168.100.208:11311"   
   lockingMode="auto"
   sticky="false" 
@@ -379,18 +379,18 @@ memcached-session-manager-tc7-1.7.0.jar
   sessionBackupTimeout= "100"
   transcoderFactoryClass="de.javakaffee.web.msm.serializer.xstream.XStreamTranscoderFactory"    
     /&gt;
-</code></pre></div>
+</code></pre></div></div>
 
 <p>lib增加jar包</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>xmlpull-1.1.3.1.jar
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xmlpull-1.1.3.1.jar
 xpp3_min-1.1.4c.jar
 xstream-1.4.6.jar
 msm-xstream-serializer-1.7.0.jar
 spymemcached-2.10.3.jar
 memcached-session-manager-1.7.0.jar
 memcached-session-manager-tc7-1.7.0.jar
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>flexjson序列化tomcat配置</li>
@@ -398,7 +398,7 @@ memcached-session-manager-tc7-1.7.0.jar
 
 <p>conf/context.xml添加</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
      memcachedNodes="n1:192.168.100.208:11211 n2:192.168.100.208:11311"     
   lockingMode="auto"
   sticky="false" 
@@ -407,16 +407,16 @@ memcached-session-manager-tc7-1.7.0.jar
   sessionBackupTimeout= "100"      
   transcoderFactoryClass="de.javakaffee.web.msm.serializer.json.JSONTranscoderFactory"    
     /&gt;
-</code></pre></div>
+</code></pre></div></div>
 
 <p>lib增加jar包</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>flexjson-3.1.jar
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flexjson-3.1.jar
 msm-flexjson-serializer-1.7.0.jar
 spymemcached-2.10.3.jar
 memcached-session-manager-1.7.0.jar
 memcached-session-manager-tc7-1.7.0.jar
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>kryo序列化tomcat配置</li>
@@ -424,7 +424,7 @@ memcached-session-manager-tc7-1.7.0.jar
 
 <p>conf/context.xml添加</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
      memcachedNodes="n1:192.168.100.208:11211 n2:192.168.100.208:11311"   
   lockingMode="auto"
   sticky="false" 
@@ -434,11 +434,11 @@ memcached-session-manager-tc7-1.7.0.jar
   copyCollectionsForSerialization="true"   
   transcoderFactoryClass="de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory"    
     /&gt;
-</code></pre></div>
+</code></pre></div></div>
 
 <p>lib增加jar包</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>kryo-1.04.jar
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kryo-1.04.jar
 minlog-1.2.jar
 asm-3.2.jar
 reflectasm-1.01.jar
@@ -447,13 +447,13 @@ msm-kryo-serializer-1.7.0.jar
 spymemcached-2.10.3.jar
 memcached-session-manager-1.7.0.jar
 memcached-session-manager-tc7-1.7.0.jar
-</code></pre></div>
+</code></pre></div></div>
 
 <p>官网介绍说 使用kryo 序列化tomcat的效率最高 所以这里只介绍kryo序列化。具体效率对比，还需要进一步验证。</p>
 
 <p>修改tomcat/context.xml文件 新增如下代码</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
     memcachedNodes="n1:192.168.0.216:11211" 
     sticky="false"
     storageKeyPrefix="context"
@@ -462,21 +462,21 @@ memcached-session-manager-tc7-1.7.0.jar
     requestUriIgnorePattern=".*\.(ico|png|gif|jpg|css|js)$"
     transcoderFactoryClass="de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory"
     /&gt;
-</code></pre></div>
+</code></pre></div></div>
 
 <p>Manager 各参数说明：</p>
 
 <p>className必选项，可配置为</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>de.javakaffee.web.msm.MemcachedBackupSessionManager和de.javakaffee.web.msm.DummyMemcachedBackupSessionManager。
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>de.javakaffee.web.msm.MemcachedBackupSessionManager和de.javakaffee.web.msm.DummyMemcachedBackupSessionManager。
+</code></pre></div></div>
 
 <p>其中DummyMemcachedBackupSessionManager可用于测试环境，不需要真实存在memcached。</p>
 
 <p>memcachedNodes必选项，memcached的节点信息，格式如：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>memcachedNodes="n1:app01:11211,n2:app02:11211"。
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>memcachedNodes="n1:app01:11211,n2:app02:11211"。
+</code></pre></div></div>
 
 <p>failoverNodes</p>
 
@@ -512,7 +512,7 @@ memcached-session-manager-tc7-1.7.0.jar
 
 <p>需要使用到得jar 列表如下</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>couchbase-client-1.2.2.jar
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>couchbase-client-1.2.2.jar
 kryo-1.03.jar
 kryo-serializers-0.10.jar
 memcached-2.5.jar
@@ -522,7 +522,7 @@ minlog-1.2.jar
 msm-kryo-serializer-1.6.5.jar
 reflectasm-0.9.jar
 spymemcached-2.10.2.jar
-</code></pre></div>
+</code></pre></div></div>
 
 <p>如果你查看过源码，你就会发现，如果当你调试不成功，session不共享，一般都是 memcached-session-manager-1.6.5.jar、memcached-session-manager-tc7-1.6.5.jar、msm-kryo-serializer-1.6.5.jar这三个jar包出问题。所以版本也很重要。</p>
 

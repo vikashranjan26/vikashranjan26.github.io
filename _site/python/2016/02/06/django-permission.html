@@ -209,7 +209,7 @@
                 <div class="ibox-content">
                     <div class="pull-right">
                     	
-                        	<button class="btn btn-white btn-xs" type="button">python</button>
+                        	<button class="btn btn-white btn-xs" type="button">Python</button>
                         
                     </div>
                     <div class="text-center article-title">
@@ -246,7 +246,7 @@
 
 <p>如上文所述，Django定义每个model后，默认都会添加该model的add, change和delete三个permission，自定义的permission可以在我们定义model时手动添加：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Task</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Task</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="o">...</span>
     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
         <span class="n">permissions</span> <span class="o">=</span> <span class="p">(</span>
@@ -254,13 +254,13 @@
             <span class="p">(</span><span class="s">"change_task_status"</span><span class="p">,</span> <span class="s">"Can change the status of tasks"</span><span class="p">),</span>
             <span class="p">(</span><span class="s">"close_task"</span><span class="p">,</span> <span class="s">"Can remove a task by setting its status as closed"</span><span class="p">),</span>
         <span class="p">)</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <p>每个permission都是django.contrib.auth.Permission类型的实例，该类型包含三个字段name, codename 和 content_type，其中 content_type反应了permission属于哪个model，codename如上面的view_task，代码逻辑中检查权限时要用， name是permission的描述，将permission打印到屏幕或页面时默认显示的就是name</p>
 
 <p>在model中创建自定义权限，从系统开发的角度，可理解为创建系统的内置权限，如果需求中涉及到用户使用系统时创建自定义权限，则要通过下面方法：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">myapp.models</span> <span class="kn">import</span> <span class="n">BlogPost</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">myapp.models</span> <span class="kn">import</span> <span class="n">BlogPost</span>
 <span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">Permission</span>
 <span class="kn">from</span> <span class="nn">django.contrib.contenttypes.models</span> <span class="kn">import</span> <span class="n">ContentType</span>
  
@@ -268,13 +268,13 @@
 <span class="n">permission</span> <span class="o">=</span> <span class="n">Permission</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">codename</span><span class="o">=</span><span class="s">'can_publish'</span><span class="p">,</span>
                                        <span class="n">name</span><span class="o">=</span><span class="s">'Can Publish Posts'</span><span class="p">,</span>
                                        <span class="n">content_type</span><span class="o">=</span><span class="n">content_type</span><span class="p">)</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="2user-permission管理">2.User Permission管理</h5>
 
 <p>User对象的user_permission字段管理用户的权限：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">myuser</span><span class="o">.</span><span class="n">user_permissions</span> <span class="o">=</span> <span class="p">[</span><span class="n">permission_list</span><span class="p">]</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myuser</span><span class="o">.</span><span class="n">user_permissions</span> <span class="o">=</span> <span class="p">[</span><span class="n">permission_list</span><span class="p">]</span>
 <span class="n">myuser</span><span class="o">.</span><span class="n">user_permissions</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">permission</span><span class="p">,</span> <span class="n">permission</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="c">#增加权限</span>
 <span class="n">myuser</span><span class="o">.</span><span class="n">user_permissions</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">permission</span><span class="p">,</span> <span class="n">permission</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="c">#删除权限</span>
 <span class="n">myuser</span><span class="o">.</span><span class="n">user_permissions</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span> <span class="c">#清空权限</span>
@@ -282,12 +282,12 @@
 <span class="c">##############################################################</span>
 <span class="c"># 注：上面的permission为django.contrib.auth.Permission类型的实例</span>
 <span class="c">##############################################################</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <p>检查用户权限用has_perm()方法：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">myuser</span><span class="o">.</span><span class="n">has_perm</span><span class="p">(</span><span class="s">'myapp.fix_car'</span><span class="p">)</span>
-</code></pre></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">myuser</span><span class="o">.</span><span class="n">has_perm</span><span class="p">(</span><span class="s">'myapp.fix_car'</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>has_perm()方法的参数，即permission的codename，但传递参数时需要加上model 所属app的前缀，格式为.。</p>
 
@@ -303,11 +303,11 @@
 
 <p>group permission管理逻辑与user permission管理一致，group中使用permissions字段做权限管理：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">group</span><span class="o">.</span><span class="n">permissions</span> <span class="o">=</span> <span class="p">[</span><span class="n">permission_list</span><span class="p">]</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">group</span><span class="o">.</span><span class="n">permissions</span> <span class="o">=</span> <span class="p">[</span><span class="n">permission_list</span><span class="p">]</span>
 <span class="n">group</span><span class="o">.</span><span class="n">permissions</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">permission</span><span class="p">,</span> <span class="n">permission</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 <span class="n">group</span><span class="o">.</span><span class="n">permissions</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">permission</span><span class="p">,</span> <span class="n">permission</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 <span class="n">group</span><span class="o">.</span><span class="n">permissions</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <p>权限检查：</p>
 
@@ -317,18 +317,18 @@
 
 <p>权限能约束用户行为，当业务逻辑中涉及到权限检查时，decorator能够分离权限验证和核心的业务逻辑，使代码更简洁，逻辑更清晰。permission的decorator为permission_required：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.contrib.auth.decorators</span> <span class="kn">import</span> <span class="n">permission_required</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.contrib.auth.decorators</span> <span class="kn">import</span> <span class="n">permission_required</span>
  
 <span class="nd">@permission_required</span><span class="p">(</span><span class="s">'car.drive_car'</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="o">...</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="5template中的权限检查">5.Template中的权限检查</h5>
 
 <p>Template中使用全局变量perms存储当前用户的所有权限，权限检查可以参考下面例子：</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>{% if perms.main.add_page %}
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if perms.main.add_page %}
             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"dropdown"</span><span class="nt">&gt;</span>
               <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"dropdown-toggle"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>Pages <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"caret"</span><span class="nt">&gt;&lt;/span&gt;&lt;/a&gt;</span>
               <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span> <span class="na">role=</span><span class="s">"menu"</span><span class="nt">&gt;</span>
@@ -338,7 +338,7 @@
               <span class="nt">&lt;/ul&gt;</span>
             <span class="nt">&lt;/li&gt;</span>
 {% endif %}
-</code></pre></div>
+</code></pre></div></div>
 
 <h4 id="三基于django-guardian的object-permission的应用">三、基于Django-guardian的object permission的应用</h4>
 
@@ -346,22 +346,22 @@
 
 <p>django-guardian详细的使用文档请参考官方文档，其object permission常用方法如下：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">guardian.shortcuts</span> <span class="kn">import</span> <span class="n">assign_perm</span><span class="p">,</span> <span class="n">get_perms</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">guardian.shortcuts</span> <span class="kn">import</span> <span class="n">assign_perm</span><span class="p">,</span> <span class="n">get_perms</span>
 <span class="kn">from</span> <span class="nn">guardian.core</span> <span class="kn">import</span> <span class="n">ObjectPermissionChecker</span>
 <span class="kn">from</span> <span class="nn">guardian.decorators</span> <span class="kn">import</span> <span class="n">permission_required</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="1添加object-permission">1.添加object permission</h5>
 
 <p>添加object permission使用assign_perm()方法，如为用户添加对mycar对象的drive_car权限：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">assign_perm</span><span class="p">(</span><span class="s">'myapp.drive_car'</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="n">mycar</span><span class="p">)</span>
-</code></pre></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assign_perm</span><span class="p">(</span><span class="s">'myapp.drive_car'</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="n">mycar</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>assign_perm()方法也可用于group</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">assign_perm</span><span class="p">(</span><span class="s">'myapp.drive_car'</span><span class="p">,</span> <span class="n">mygroup</span><span class="p">,</span> <span class="n">mycar</span><span class="p">)</span>
-</code></pre></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assign_perm</span><span class="p">(</span><span class="s">'myapp.drive_car'</span><span class="p">,</span> <span class="n">mygroup</span><span class="p">,</span> <span class="n">mycar</span><span class="p">)</span>
+</code></pre></div></div>
 
 <h5 id="2权限检查">2.权限检查</h5>
 
@@ -369,7 +369,7 @@
 
 <p>get_perms()方法用于检查用户的“全局权限”（global permission），与user.has_perm()异曲同工，如：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#############################</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#############################</span>
 <span class="c"># It works! </span>
 <span class="c">#############################</span>
  <span class="k">if</span> <span class="ow">not</span> <span class="s">'main.change_post'</span> <span class="ow">in</span> <span class="n">get_perms</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="n">post</span><span class="p">):</span>
@@ -380,7 +380,7 @@
 <span class="c">#############################</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">has_perm</span><span class="p">(</span><span class="s">'main.change_post'</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s">'Forbidden'</span><span class="p">)</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <p>例子中虽然把post object作为参数传给get_perms()方法，但它只检查user的全局权限中是否有main.change_post权限，很多情况下可用原生的user.has_perm取代，但user和group均可作为get_perms()的传入参数，某些情况下可以使代码更简洁。</p>
 
@@ -388,15 +388,15 @@
 
 <p>Django-guardian中使用ObjectPermissionChecker检查用户的object permission，示例如下：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">checker</span> <span class="o">=</span> <span class="n">ObjectPermissionChecker</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">checker</span> <span class="o">=</span> <span class="n">ObjectPermissionChecker</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">checker</span><span class="o">.</span><span class="n">has_perm</span><span class="p">(</span><span class="s">'main.change_post'</span><span class="p">,</span> <span class="n">post</span><span class="p">)</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="3permission_required装饰器">3.permission_required装饰器</h5>
 
 <p>guardian.decorators.permission_required是django-guardian权限检查的decorator，既可以检查全局权限，又可以检查对象权限（object permission），其中，accept_global_perms参数指出是否检查user的global permission，如：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">guardian.decorators</span> <span class="kn">import</span> <span class="n">permission_required</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">guardian.decorators</span> <span class="kn">import</span> <span class="n">permission_required</span>
  
 <span class="k">class</span> <span class="nc">DeletePost</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
     <span class="nd">@method_decorator</span><span class="p">(</span><span class="n">permission_required</span><span class="p">(</span><span class="s">'main.delete_post'</span><span class="p">,</span> 
@@ -416,7 +416,7 @@
             <span class="k">raise</span> <span class="n">Http404</span>
  
         <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <p>注：</p>
 

@@ -209,7 +209,7 @@
                 <div class="ibox-content">
                     <div class="pull-right">
                     	
-                        	<button class="btn btn-white btn-xs" type="button">database</button>
+                        	<button class="btn btn-white btn-xs" type="button">Database</button>
                         
                     </div>
                     <div class="text-center article-title">
@@ -222,43 +222,43 @@
 
 <p>(1)先安装cmake（mysql5.5以后是通过cmake来编译的）</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@ rhel5 local]#tar -zxv -f cmake-2.8.4.tar.gz
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@ rhel5 local]#tar -zxv -f cmake-2.8.4.tar.gz
 [root@ rhel5 local]#cd cmake-2.8.4
 [root@ rhel5 cmake-2.8.4]#./configure
 [root@ rhel5 cmake-2.8.4]#make
 [root@ rhel5 cmake-2.8.4]#make install
-</code></pre></div>
+</code></pre></div></div>
 
 <p>(2)创建mysql的安装目录及数据库存放目录</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@ rhel5~]#mkdir -p /usr/local/mysql                 //安装mysql 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@ rhel5~]#mkdir -p /usr/local/mysql                 //安装mysql 
 [root@ rhel5~]#mkdir -p /usr/local/mysql/data            //存放数据库
-</code></pre></div>
+</code></pre></div></div>
 
 <p>(3)创建mysql用户及用户组</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@ rhel5~]groupadd mysql
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@ rhel5~]groupadd mysql
 [root@ rhel5~]useradd -r -g mysql mysql
-</code></pre></div>
+</code></pre></div></div>
 
 <p>(4)安装mysql</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@ rhel5 local]#tar -zxv -f mysql-5.5.10.tar.gz
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@ rhel5 local]#tar -zxv -f mysql-5.5.10.tar.gz
 [root@ rhel5 local]#cd mysql-5.5.10
-</code></pre></div>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@ rhel5 mysql-5.5.10]#cmake . 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@ rhel5 mysql-5.5.10]#cmake . 
 -DCMAKE_INSTALL_PREFIX=/usr/local/mysql
 -DMYSQL_DATADIR=/usr/local/mysql/data
 -DDEFAULT_CHARSET=utf8
 -DDEFAULT_COLLATION=utf8_general_ci 
 -DEXTRA_CHARSETS=all 
 -DENABLED_LOCAL_INFILE=1
-</code></pre></div>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@ rhel5 mysql-5.5.10]#make
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@ rhel5 mysql-5.5.10]#make
 [root@ rhel5 mysql-5.5.10]#make install
-</code></pre></div>
+</code></pre></div></div>
 
 <p>参数说明：</p>
 
@@ -297,60 +297,60 @@
 
 <p>(1)设置目录权限</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@ rhel5~]# cd /usr/local/mysql
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@ rhel5~]# cd /usr/local/mysql
 [root@ rhel5 mysql]# chown -R root:mysql .　//把当前目录中所有文件的所有者所有者设为root，所属组为mysql
 [root@ rhel5 mysql]# chown -R mysql:mysql data
-</code></pre></div>
+</code></pre></div></div>
 
 <p>(2)</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@ rhel5 mysql]# cp support-files/my-medium.cnf /etc/my.cnf　//将mysql的启动服务添加到系统服务中
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@ rhel5 mysql]# cp support-files/my-medium.cnf /etc/my.cnf　//将mysql的启动服务添加到系统服务中
+</code></pre></div></div>
 
 <p>(3)创建系统数据库的表</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@ rhel5 mysql]# cd /usr/local/mysql
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@ rhel5 mysql]# cd /usr/local/mysql
 [root@ rhel5 mysql]# scripts/mysql_install_db --user=mysql
-</code></pre></div>
+</code></pre></div></div>
 
 <p>(4)设置环境变量</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@ rhel5~]# vi /root/.bash_profile
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@ rhel5~]# vi /root/.bash_profile
+</code></pre></div></div>
 
 <p>在PATH=$PATH:$HOME/bin添加参数为：</p>
 
 <p><code class="highlighter-rouge">PATH=$PATH:$HOME/bin:/usr/local/mysql/bin:/usr/local/mysql/lib</code></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@ rhel5~]#source /root/.bash_profile
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@ rhel5~]#source /root/.bash_profile
+</code></pre></div></div>
 
 <p>(5)手动启动mysql</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@ rhel5~]# cd /usr/local/mysql
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@ rhel5~]# cd /usr/local/mysql
 [root@ rhel5 mysql]# ./bin/mysqld_safe --user=mysql &amp; 　 //启动MySQL，但不能停止
-</code></pre></div>
+</code></pre></div></div>
 
 <p>启动日志写在此文件下：<code class="highlighter-rouge">/usr/local/mysql/data/localhost.err</code></p>
 
 <p>关闭MySQL服务</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@ rhel5 mysql]# mysqladmin -u root -p shutdown　　//这里MySQL的root用户还没有配置密码，所以为空值。需要输入密码时，直接点回车键即可。
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@ rhel5 mysql]# mysqladmin -u root -p shutdown　　//这里MySQL的root用户还没有配置密码，所以为空值。需要输入密码时，直接点回车键即可。
+</code></pre></div></div>
 
 <p>(6)另一种简单的启动mysql的方法(mysql已经被添加到系统服务中)</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@ rhel5~]# service mysql.server start  
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@ rhel5~]# service mysql.server start  
 [root@ rhel5~]# service mysql.server stop
 [root@ rhel5~]# service mysql.server restart
-</code></pre></div>
+</code></pre></div></div>
 
 <p>如果上述命令出现：mysql.server 未识别的服务</p>
 
 <p>则可能mysql还没添加到系统服务中，下面用另一种方法添加：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@ rhel5 mysql]# cp support-files/mysql.server  /etc/init.d/mysql　//将mysql的启动服务添加到系统服务中
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@ rhel5 mysql]# cp support-files/mysql.server  /etc/init.d/mysql　//将mysql的启动服务添加到系统服务中
+</code></pre></div></div>
 
 <p>注意：主要是将mysql.server拷贝到/etc/init.d中，命名为mysql。在有的系统中，mysql.server在/usr/local/mysql/share/mysql/mysql.server中，而本系统中，mysql.server在/usr/local/mysql/support-files/mysql.server中。</p>
 
@@ -358,32 +358,32 @@
 
 <p>(7)修改MySQL的root用户的密码以及打开远程连接</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@ rhel5~]# mysql -u root mysql
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@ rhel5~]# mysql -u root mysql
+</code></pre></div></div>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">mysql</span><span class="o">&gt;</span><span class="n">use</span> <span class="n">mysql</span><span class="p">;</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mysql</span><span class="o">&gt;</span><span class="n">use</span> <span class="n">mysql</span><span class="p">;</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="k">desc</span> <span class="k">user</span><span class="p">;</span>
 <span class="n">mysqlGRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="n">root</span><span class="o">@</span><span class="nv">"%"</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="nv">"root"</span><span class="p">;</span><span class="err">　　</span><span class="o">//</span><span class="err">为</span><span class="n">root</span><span class="err">添加远程连接的能力。</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="k">update</span> <span class="k">user</span> <span class="k">set</span> <span class="n">Password</span> <span class="o">=</span> <span class="n">password</span><span class="p">(</span><span class="s1">'xxxxxx'</span><span class="p">)</span> <span class="k">where</span> <span class="k">User</span><span class="o">=</span><span class="s1">'root'</span><span class="p">;</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="k">select</span> <span class="k">Host</span><span class="p">,</span><span class="k">User</span><span class="p">,</span><span class="n">Password</span>  <span class="k">from</span> <span class="k">user</span> <span class="k">where</span> <span class="k">User</span><span class="o">=</span><span class="s1">'root'</span><span class="p">;</span> 
 <span class="n">mysql</span><span class="o">&gt;</span><span class="n">flush</span> <span class="k">privileges</span><span class="p">;</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="n">exit</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <p>重新登录：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>mysql -u root -p
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u root -p
+</code></pre></div></div>
 
 <p>若还不能进行远程连接，则关闭防火墙</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@ rhel5~]# /etc/rc.d/init.d/iptables stop
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@ rhel5~]# /etc/rc.d/init.d/iptables stop
+</code></pre></div></div>
 
 <p>注：如果不能远程连接，出现错误mysql error number 1130，则加入下面语句试试：</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="n">mysql</span><span class="o">&gt;</span><span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'root'</span><span class="o">@</span><span class="s1">'%'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'******'</span> <span class="k">WITH</span> <span class="k">GRANT</span> <span class="k">OPTION</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mysql</span><span class="o">&gt;</span><span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">'root'</span><span class="o">@</span><span class="s1">'%'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'******'</span> <span class="k">WITH</span> <span class="k">GRANT</span> <span class="k">OPTION</span><span class="p">;</span>
+</code></pre></div></div>
 
 
                     <hr>

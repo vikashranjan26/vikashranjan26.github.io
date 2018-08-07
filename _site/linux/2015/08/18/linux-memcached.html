@@ -209,7 +209,7 @@
                 <div class="ibox-content">
                     <div class="pull-right">
                     	
-                        	<button class="btn btn-white btn-xs" type="button">linux</button>
+                        	<button class="btn btn-white btn-xs" type="button">Linux</button>
                         
                     </div>
                     <div class="text-center article-title">
@@ -230,15 +230,15 @@
 
 <p>安装memcached在configure时，若需要安装多个memcached，增加路径参数即可：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>./configure –prefix=/usr/local/mem1/
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure –prefix=/usr/local/mem1/
+</code></pre></div></div>
 
 <p>启动方式：</p>
 
 <p>在bin目录下</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>./memcached -d -c 4096 -m 512 -u root -p 11212
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./memcached -d -c 4096 -m 512 -u root -p 11212
+</code></pre></div></div>
 
 <ul>
   <li>
@@ -264,13 +264,13 @@
 
 <p>解决办法：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>whereis libevent-2.0.so.5
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>whereis libevent-2.0.so.5
+</code></pre></div></div>
 
 <p>libevent-2.0.so.5: /usr/local/lib/libevent-2.0.so.5</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ldd /usr/local/bin/memcached （ldd指令不熟悉的去查看下）
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ldd /usr/local/bin/memcached （ldd指令不熟悉的去查看下）
+</code></pre></div></div>
 
 <p>libevent-2.0.so.5 =&gt; not found （没有找到该文件）</p>
 
@@ -282,17 +282,17 @@
 
 <p>/lib64/ld-linux-x86-64.so.2 (0x00002b83fc9b0000)</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>LD_DEBUG=libs ./memcached -v
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LD_DEBUG=libs ./memcached -v
+</code></pre></div></div>
 
-<p>LD_DEBUG=libs /usr/local/mem1/bin/memcached -v<br />
+<p>LD_DEBUG=libs /usr/local/mem1/bin/memcached -v
 找到默认路径 /usr/lib/</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo ln -s /usr/lib/libevent-2.0.so.5 /usr/lib64/libevent-2.0.so.5
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ln -s /usr/lib/libevent-2.0.so.5 /usr/lib64/libevent-2.0.so.5
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo ldd /usr/local/bin/memcached
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ldd /usr/local/bin/memcached
+</code></pre></div></div>
 
 <p>libevent-2.0.so.5 =&gt; /usr/lib64/libevent-2.0.so.5 (0x00002b83fcbcd000)</p>
 

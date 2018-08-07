@@ -209,7 +209,7 @@
                 <div class="ibox-content">
                     <div class="pull-right">
                     	
-                        	<button class="btn btn-white btn-xs" type="button">database</button>
+                        	<button class="btn btn-white btn-xs" type="button">Database</button>
                         
                     </div>
                     <div class="text-center article-title">
@@ -226,9 +226,9 @@
 
 <p>在MySQL查询中执行以下操作：</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">select</span> <span class="k">table_name</span><span class="p">,</span><span class="n">concat</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">data_length</span><span class="o">/</span><span class="mi">1000</span><span class="o">/</span><span class="mi">1000</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="s1">'GB'</span><span class="p">)</span> <span class="k">as</span> <span class="n">data_length_GB</span> 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="k">table_name</span><span class="p">,</span><span class="n">concat</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">data_length</span><span class="o">/</span><span class="mi">1000</span><span class="o">/</span><span class="mi">1000</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="s1">'GB'</span><span class="p">)</span> <span class="k">as</span> <span class="n">data_length_GB</span> 
 <span class="k">from</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">data_length_GB</span><span class="p">;</span>
-</code></pre></div>
+</code></pre></div></div>
 
                     <hr>
                     <div class="row">

@@ -209,9 +209,9 @@
                 <div class="ibox-content">
                     <div class="pull-right">
                     	
-                        	<button class="btn btn-white btn-xs" type="button">python</button>
+                        	<button class="btn btn-white btn-xs" type="button">Python</button>
                         
-                        	<button class="btn btn-white btn-xs" type="button">linux</button>
+                        	<button class="btn btn-white btn-xs" type="button">Linux</button>
                         
                     </div>
                     <div class="text-center article-title">
@@ -228,12 +228,12 @@
 
 <h4 id="configuration">Configuration</h4>
 
-<p>配置其实很简单，主要就是设置supervisord.conf和celerd.conf两个文件。celery官方还提供了这两个文件的示例<br />
+<p>配置其实很简单，主要就是设置supervisord.conf和celerd.conf两个文件。celery官方还提供了这两个文件的示例
 下面是我这两个文件的设置，提供给正在弄这个的同学们参考。</p>
 
 <p>supervisord.conf</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[unix_http_server]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[unix_http_server]
 file=/tmp/supervisor.sock   ; path to your socket file
 ;chmod=0777
 ;chown=webscan:webscan
@@ -280,13 +280,13 @@ files=celeryd.conf
 # Uncomment this line for celeryd for Django.
 ;files=django/celeryd.conf
 
-</code></pre></div>
+</code></pre></div></div>
 
 <p>基本上就是官方那个配置文件，拿过来加上了flower的设置。</p>
 
 <p>celerd.conf</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[program:celery]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[program:celery]
 command=celery worker --hostname=celery-%(process_num)d.webscan.com --loglevel=INFO
 
 process_name = %(program_name)s-%(process_num)d
@@ -301,23 +301,23 @@ stderr_logfile=/var/log/celeryd.log
 autostart=true
 autorestart=true
 startsecs=10
-</code></pre></div>
+</code></pre></div></div>
 
 <p>这个设置里比较不同的是numprocs我设置成了4，既celery worker进程会同时起4个，分别命名celery-0 ,celery-1。之所以要在一台机器上起4个worker进程，是因为我们的celery pool用的是gevent，而为了充分利用多核，因此一台机器上需要起4个worker。</p>
 
 <h4 id="usage">Usage</h4>
 <p>上面的设置都完成后先启动supervisord</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>supervisord -c /etc/supervisord.conf
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>supervisord -c /etc/supervisord.conf
+</code></pre></div></div>
 
 <p>然后就可以通过supervisorctl对这些进程进行管理了：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>supervisorctl restart flower
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>supervisorctl restart flower
 supervisorctl stop celery:celery-0
-</code></pre></div>
+</code></pre></div></div>
 
-<p>浏览器访问http://10.1.1.1:1222/ 还可以通过web对这些进程进行管理<br />
+<p>浏览器访问http://10.1.1.1:1222/ 还可以通过web对这些进程进行管理
 <img src="http://www.jack003.com/static/img/blog/supervisord_celery/celery-web.jpg" alt="celery" /></p>
 
 

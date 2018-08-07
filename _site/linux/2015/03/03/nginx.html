@@ -209,7 +209,7 @@
                 <div class="ibox-content">
                     <div class="pull-right">
                     	
-                        	<button class="btn btn-white btn-xs" type="button">linux</button>
+                        	<button class="btn btn-white btn-xs" type="button">Linux</button>
                         
                     </div>
                     <div class="text-center article-title">
@@ -220,7 +220,7 @@
                     </div>
                     	<p>nginx安装版本为nginx-1.6.2.tar.gz，这个版本为目前最新的稳定版。</p>
 
-<p>安装之前需要安装pcre插件包，插件包版本为：pcre-8.36.tar.gz<br />
+<p>安装之前需要安装pcre插件包，插件包版本为：pcre-8.36.tar.gz
 还有zlib库和ssl，通过yum安装即可，<code class="highlighter-rouge">yum -y install zlib* openssl openssl-devel</code>。</p>
 
 <p>源码安装遵循安装三部曲：<code class="highlighter-rouge">./configure ; make ; make install</code></p>
@@ -229,8 +229,8 @@
 
 <p>其中nginx根据不同的用途安装如下插件包：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>./configure --with-http_stub_status_module --with-http_image_filter_module --with-http_ssl_module --with-pcre=/pcre/path --add-module=/purge/path
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./configure --with-http_stub_status_module --with-http_image_filter_module --with-http_ssl_module --with-pcre=/pcre/path --add-module=/purge/path
+</code></pre></div></div>
 
 <ul>
   <li>
@@ -252,7 +252,7 @@
 
 <p>隐藏nginx版本号：</p>
 
-<p>一、就nginx方面的调整，这里可以直接修改nginx的配置文件来隐藏：<br />
+<p>一、就nginx方面的调整，这里可以直接修改nginx的配置文件来隐藏：
 添加server_tokens off；</p>
 
 <p>二、如果想要把nginx也隐藏掉，需要编辑nginx源码中的src/core/nginx.h头文件nginx修改为Microsoft-IIS版本号改为7，修改后的截图如下</p>

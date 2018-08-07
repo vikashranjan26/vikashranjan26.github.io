@@ -209,7 +209,7 @@
                 <div class="ibox-content">
                     <div class="pull-right">
                     	
-                        	<button class="btn btn-white btn-xs" type="button">linux</button>
+                        	<button class="btn btn-white btn-xs" type="button">Linux</button>
                         
                     </div>
                     <div class="text-center article-title">
@@ -220,7 +220,7 @@
                     </div>
                     	<p>无用户名密码共享文件：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>uid = root  
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uid = root  
 gid = root  
 use chroot = no  
 max connections = 100  
@@ -234,11 +234,11 @@ strict modes = no
 path = /home/rsync_fwg
 read only = yes 
 hosts allow = 192.168.112.243,192.168.104.112,192.168.112.136
-</code></pre></div>
+</code></pre></div></div>
 
 <p>使用密码文件进行用户认证共享：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># Minimal configuration file for rsync daemon
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Minimal configuration file for rsync daemon
 # See rsync(1) and rsyncd.conf(5) man pages for help
 
 # This line is required by the /etc/init.d/rsyncd script
@@ -265,17 +265,17 @@ path = /home/dir/gameantispam/pluguser
 #ignore errors                              
 auth users = game                          
 #comment = gameantispam    
-</code></pre></div>
+</code></pre></div></div>
 
 <p>/etc/rsyncd.secrets文件：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>game:game
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>game:game
+</code></pre></div></div>
 
 <p>启动rsync：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>rsync --daemon --config=/etc/rsyncd.conf --port=8723
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rsync --daemon --config=/etc/rsyncd.conf --port=8723
+</code></pre></div></div>
 
 <p>远程同步：</p>
 

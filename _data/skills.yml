@@ -16,7 +16,7 @@
 - name: Git
   percentage: 90
   
-name: Computer Vision
+- name: Computer Vision
   percentage: 80
 
 - name: Linux/Unix

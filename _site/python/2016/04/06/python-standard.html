@@ -209,7 +209,7 @@
                 <div class="ibox-content">
                     <div class="pull-right">
                     	
-                        	<button class="btn btn-white btn-xs" type="button">python</button>
+                        	<button class="btn btn-white btn-xs" type="button">Python</button>
                         
                     </div>
                     <div class="text-center article-title">
@@ -287,16 +287,16 @@
   <li>块注释，在一段代码前增加的注释。在‘#’后加一空格。段落之间以只有‘#’的行间隔。比如：</li>
 </ol>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># Description : Module config.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Description : Module config.
 # 
 # Input : None
 #
 # Output : None
-</code></pre></div>
+</code></pre></div></div>
 
 <ol>
   <li>
-    <p>行注释，在一句代码后加注释。比如：x = x + 1 # Increment x<br />
+    <p>行注释，在一句代码后加注释。比如：x = x + 1 # Increment x
 但是这种方式尽量少使用。</p>
   </li>
   <li>
@@ -313,7 +313,7 @@
   <li>
     <p>如果docstring要换行，参考如下例子,详见PEP 257</p>
     <blockquote>
-      <p>Return a foobang<br />
+      <p>Return a foobang
 Optional plotz says to frobnicate the bizbaz first.</p>
     </blockquote>
   </li>
@@ -338,7 +338,7 @@ Optional plotz says to frobnicate the bizbaz first.</p>
     <p>异常命名使用CapWords+Error后缀的方式。</p>
   </li>
   <li>
-    <p>全局变量尽量只在模块内有效，类似C语言中的static。实现方法有两<br />
+    <p>全局变量尽量只在模块内有效，类似C语言中的static。实现方法有两
 种，一是__all__机制;二是前缀一个下划线。</p>
   </li>
   <li>
@@ -384,40 +384,40 @@ Optional plotz says to frobnicate the bizbaz first.</p>
   </li>
 </ol>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
     <span class="n">value</span> <span class="o">=</span> <span class="n">collection</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 <span class="k">except</span> <span class="nb">KeyError</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">key_not_found</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">handle_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <p>要优于</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
 <span class="c"># Too broad!</span>
     <span class="k">return</span> <span class="n">handle_value</span><span class="p">(</span><span class="n">collection</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
 <span class="k">except</span> <span class="nb">KeyError</span><span class="p">:</span>
 <span class="c"># Will also catch KeyError raised by handle_value()</span>
     <span class="k">return</span> <span class="n">key_not_found</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <ol>
   <li>
-    <p>使用startswith() and endswith()代替切片进行序列前缀或后缀的检查。比如：<br />
-Yes: <code class="highlighter-rouge">if foo.startswith('bar')</code>:优于<br />
+    <p>使用startswith() and endswith()代替切片进行序列前缀或后缀的检查。比如：
+Yes: <code class="highlighter-rouge">if foo.startswith('bar')</code>:优于
 No: <code class="highlighter-rouge">if foo[:3] == 'bar'</code></p>
   </li>
   <li>
-    <p>使用isinstance()比较对象的类型。比如<br />
-Yes: <code class="highlighter-rouge">if isinstance(obj, int)</code>: 优于<br />
+    <p>使用isinstance()比较对象的类型。比如
+Yes: <code class="highlighter-rouge">if isinstance(obj, int)</code>: 优于
 No: <code class="highlighter-rouge">if type(obj) is type(1)</code>:</p>
   </li>
   <li>
-    <p>判断序列空或不空，有如下规则<br />
+    <p>判断序列空或不空，有如下规则
 Yes: <code class="highlighter-rouge">if not seq:
-if seq:</code><br />
-优于<br />
+if seq:</code>
+优于
 No: <code class="highlighter-rouge">if len(seq)
 if not len(seq)</code></p>
   </li>

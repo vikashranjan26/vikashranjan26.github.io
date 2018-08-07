@@ -209,7 +209,7 @@
                 <div class="ibox-content">
                     <div class="pull-right">
                     	
-                        	<button class="btn btn-white btn-xs" type="button">python</button>
+                        	<button class="btn btn-white btn-xs" type="button">Python</button>
                         
                     </div>
                     <div class="text-center article-title">
@@ -239,7 +239,7 @@
 
 <p>将存放常量的文件命名为constant.py，并在其中定义一些列常量：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">_const</span><span class="p">:</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">_const</span><span class="p">:</span>
     <span class="k">class</span> <span class="nc">ConstError</span><span class="p">(</span><span class="nb">TypeError</span><span class="p">):</span> <span class="k">pass</span>
     <span class="k">class</span> <span class="nc">ConstCaseError</span><span class="p">(</span><span class="n">ConstError</span><span class="p">):</span> <span class="k">pass</span>
     
@@ -255,25 +255,25 @@
 <span class="kn">import</span> <span class="nn">const</span>
 <span class="n">const</span><span class="o">.</span><span class="n">MY_NAME</span> <span class="o">=</span> <span class="s">'JACK'</span>
 <span class="o">...</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <p>当在其他模块中引用这些常量时，按照如下方式进行即可：</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">constant</span> <span class="kn">import</span> <span class="n">const</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">constant</span> <span class="kn">import</span> <span class="n">const</span>
 <span class="k">print</span> <span class="n">const</span><span class="o">.</span><span class="n">MY_NAME</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h4 id="数据交换不推荐使用中间变量">③数据交换不推荐使用中间变量</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; temp = x
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; temp = x
 &gt;&gt;&gt; x = y
 &gt;&gt;&gt; t = temp
-</code></pre></div>
+</code></pre></div></div>
 
 <p>替换为：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; x,y = y,x
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; x,y = y,x
+</code></pre></div></div>
 
 <h4 id="充分利用lazy-evaluation的特性">④充分利用Lazy evaluation的特性</h4>
 
@@ -281,18 +281,18 @@
 
 <h4 id="不推荐使用type进行类型检查">⑤不推荐使用type进行类型检查</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; import types
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; import types
 &gt;&gt;&gt; string = 'abc'
 &gt;&gt;&gt; type(string) = types.StringType
 True
-</code></pre></div>
+</code></pre></div></div>
 
 <p>替换为：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; string = 'abc'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; string = 'abc'
 &gt;&gt;&gt; isinstance(string, str)
 True
-</code></pre></div>
+</code></pre></div></div>
 
                     <hr>
                     <div class="row">

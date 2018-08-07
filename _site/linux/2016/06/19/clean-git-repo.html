@@ -209,7 +209,7 @@
                 <div class="ibox-content">
                     <div class="pull-right">
                     	
-                        	<button class="btn btn-white btn-xs" type="button">linux</button>
+                        	<button class="btn btn-white btn-xs" type="button">Linux</button>
                         
                     </div>
                     <div class="text-center article-title">
@@ -226,14 +226,14 @@
 
 <p>首先进行 Git 垃圾回收：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git gc --auto
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git gc --auto
+</code></pre></div></div>
 
 <p>其次查看 Git 仓库占用空间：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ du -hs .git/objects
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ du -hs .git/objects
 45M .git/objects
-</code></pre></div>
+</code></pre></div></div>
 
 <p>然后找出历史中超过一定大小的文件，最后在历史中删除并且提交。如果感兴趣手动处理这个过程可以参照文章后边的链接。</p>
 
@@ -241,30 +241,30 @@
 
 <p>清理历史中的文件：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch ****/nohup.out' --prune-empty --tag-name-filter cat -- --all
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch ****/nohup.out' --prune-empty --tag-name-filter cat -- --all
 git filter-branch --index-filter 'git rm --cached --ignore-unmatch ****/nohup.out' HEAD
 git for-each-ref --format="%(refname)" refs/original/ | xargs -n 1 git update-ref -d
-</code></pre></div>
+</code></pre></div></div>
 
 <p>强制提交覆盖：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git reflog expire --expire=now --all
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reflog expire --expire=now --all
 git gc --prune=now
 git push --all --force
 git push --tags --force
-</code></pre></div>
+</code></pre></div></div>
 
 <h2 id="查找大文件并清理">查找大文件并清理</h2>
 
 <p>下载<a href="https://raw.githubusercontent.com/Jack614/jalpc_jekyll_theme/gh-pages/git_find_big.sh">Bash Script</a>，在项目目录下：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ chmod 777 git_find_big.sh
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ chmod 777 git_find_big.sh
 $ git gc --auto
-</code></pre></div>
+</code></pre></div></div>
 
 <p>查找大文件：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ git_find_big.sh 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git_find_big.sh 
 All sizes are in kB's. The pack column is the size of the object, compressed, inside the pack file.
 size  pack  SHA                                       location
 592   580   e3117f48bc305dd1f5ae0df3419a0ce2d9617336  media/img/emojis.jar
@@ -272,17 +272,17 @@ size  pack  SHA                                       location
 518   514   22f7f9a84905aaec019dae9ea1279a9450277130  media/images/screenshots/issue-tracker-wiki.jar
 337   92    1fd8ac97c9fecf74ba6246eacef8288e89b4bff5  media/js/lib/bundle.js
 240   239   e0c26d9959bd583e5ef32b6206fc8abe5fea8624  media/img/featuretour/heroshot.png
-</code></pre></div>
+</code></pre></div></div>
 
 <p>手动清理文件：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git filter-branch --index-filter 'git rm --cached --ignore-unmatch filename' HEAD
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git filter-branch --index-filter 'git rm --cached --ignore-unmatch filename' HEAD
+</code></pre></div></div>
 
 <p>提交</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git push -f
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push -f
+</code></pre></div></div>
 
                     <hr>
                     <div class="row">

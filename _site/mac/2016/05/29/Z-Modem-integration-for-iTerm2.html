@@ -209,7 +209,7 @@
                 <div class="ibox-content">
                     <div class="pull-right">
                     	
-                        	<button class="btn btn-white btn-xs" type="button">mac</button>
+                        	<button class="btn btn-white btn-xs" type="button">Mac</button>
                         
                     </div>
                     <div class="text-center article-title">
@@ -224,7 +224,7 @@
 
 <p>在Mac电脑上安装rz/sz：<code class="highlighter-rouge">brew install lrzsz</code></p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
 
 <span class="c">#</span>
 <span class="c"># iterm2-zmodem</span>
@@ -247,56 +247,56 @@
 <span class="c">#</span>
 
 <span class="c"># usage</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="nv">$1</span> !<span class="o">=</span> <span class="s2">"sz"</span> <span class="o">&amp;&amp;</span> <span class="nv">$1</span> !<span class="o">=</span> <span class="s2">"rz"</span> <span class="o">]]</span>; <span class="k">then
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$1</span> <span class="o">!=</span> <span class="s2">"sz"</span> <span class="o">&amp;&amp;</span> <span class="nv">$1</span> <span class="o">!=</span> <span class="s2">"rz"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
     </span><span class="nb">echo</span> <span class="s2">"usage: </span><span class="nv">$0</span><span class="s2"> sz|rz"</span>
     <span class="nb">exit
 </span><span class="k">fi</span>
 
 <span class="c"># send Z-Modem cancel sequence</span>
 <span class="k">function </span>cancel <span class="o">{</span>
-	<span class="nb">echo</span> -e <span class="se">\\</span>x18<span class="se">\\</span>x18<span class="se">\\</span>x18<span class="se">\\</span>x18<span class="se">\\</span>x18
+	<span class="nb">echo</span> <span class="nt">-e</span> <span class="se">\\</span>x18<span class="se">\\</span>x18<span class="se">\\</span>x18<span class="se">\\</span>x18<span class="se">\\</span>x18
 <span class="o">}</span>
 
 <span class="c"># send notification using growlnotify</span>
 <span class="k">function </span>notify <span class="o">{</span>
     <span class="nb">local </span><span class="nv">msg</span><span class="o">=</span><span class="nv">$1</span>
     
-    <span class="k">if </span><span class="nb">command</span> -v growlnotify &gt;/dev/null 2&gt;&amp;1; <span class="k">then
-        </span>growlnotify -a /Applications/iTerm.app -n <span class="s2">"iTerm"</span> -m <span class="s2">"</span><span class="nv">$msg</span><span class="s2">"</span> -t <span class="s2">"File transfer"</span>
+    <span class="k">if </span><span class="nb">command</span> <span class="nt">-v</span> growlnotify <span class="o">&gt;</span>/dev/null 2&gt;&amp;1<span class="p">;</span> <span class="k">then
+        </span>growlnotify <span class="nt">-a</span> /Applications/iTerm.app <span class="nt">-n</span> <span class="s2">"iTerm"</span> <span class="nt">-m</span> <span class="s2">"</span><span class="nv">$msg</span><span class="s2">"</span> <span class="nt">-t</span> <span class="s2">"File transfer"</span>
     <span class="k">else
-        </span><span class="nb">echo</span> <span class="s2">"# </span><span class="nv">$msg</span><span class="s2">"</span> | tr <span class="s1">'\n'</span> <span class="s1">' '</span>
+        </span><span class="nb">echo</span> <span class="s2">"# </span><span class="nv">$msg</span><span class="s2">"</span> | <span class="nb">tr</span> <span class="s1">'\n'</span> <span class="s1">' '</span>
     <span class="k">fi</span>
 <span class="o">}</span>
 
 <span class="c">#setup</span>
-<span class="o">[[</span> <span class="nv">$LRZSZ_PATH</span> !<span class="o">=</span> <span class="s2">""</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nv">LRZSZ_PATH</span><span class="o">=</span><span class="s2">":</span><span class="nv">$LRZSZ_PATH</span><span class="s2">"</span> <span class="o">||</span> <span class="nv">LRZSZ_PATH</span><span class="o">=</span><span class="s2">""</span>
+<span class="o">[[</span> <span class="nv">$LRZSZ_PATH</span> <span class="o">!=</span> <span class="s2">""</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nv">LRZSZ_PATH</span><span class="o">=</span><span class="s2">":</span><span class="nv">$LRZSZ_PATH</span><span class="s2">"</span> <span class="o">||</span> <span class="nv">LRZSZ_PATH</span><span class="o">=</span><span class="s2">""</span>
 
-<span class="nv">PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">command</span> -p getconf PATH<span class="k">)</span>:/usr/local/bin<span class="nv">$LRZSZ_PATH</span>
+<span class="nv">PATH</span><span class="o">=</span><span class="k">$(</span><span class="nb">command</span> <span class="nt">-p</span> getconf PATH<span class="k">)</span>:/usr/local/bin<span class="nv">$LRZSZ_PATH</span>
 <span class="nv">ZCMD</span><span class="o">=</span><span class="k">$(</span>
-    <span class="k">if </span><span class="nb">command</span> -v <span class="nv">$1</span> &gt;/dev/null 2&gt;&amp;1; <span class="k">then
+    <span class="k">if </span><span class="nb">command</span> <span class="nt">-v</span> <span class="nv">$1</span> <span class="o">&gt;</span>/dev/null 2&gt;&amp;1<span class="p">;</span> <span class="k">then
         </span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
-    <span class="k">elif </span><span class="nb">command</span> -v l<span class="nv">$1</span> &gt;/dev/null 2&gt;&amp;1; <span class="k">then
+    <span class="k">elif </span><span class="nb">command</span> <span class="nt">-v</span> l<span class="nv">$1</span> <span class="o">&gt;</span>/dev/null 2&gt;&amp;1<span class="p">;</span> <span class="k">then
         </span><span class="nb">echo</span> <span class="s2">"l</span><span class="nv">$1</span><span class="s2">"</span>
     <span class="k">fi</span>
 <span class="k">)</span>
 
 <span class="c"># main</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="nv">$ZCMD</span> <span class="o">=</span> <span class="s2">""</span> <span class="o">]]</span>; <span class="k">then
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$ZCMD</span> <span class="o">=</span> <span class="s2">""</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
     </span>cancel
     <span class="nb">echo
 
     </span>notify <span class="s2">"Unable to find Z-Modem tools"</span>
     <span class="nb">exit
-</span><span class="k">elif</span> <span class="o">[[</span> <span class="nv">$1</span> <span class="o">=</span> <span class="s2">"rz"</span> <span class="o">]]</span>; <span class="k">then</span>
+</span><span class="k">elif</span> <span class="o">[[</span> <span class="nv">$1</span> <span class="o">=</span> <span class="s2">"rz"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
     <span class="c"># receive a file</span>
     <span class="nv">DST</span><span class="o">=</span><span class="k">$(</span>
         osascript <span class="se">\</span>
-            -e <span class="s2">"tell application </span><span class="se">\"</span><span class="s2">iTerm</span><span class="se">\"</span><span class="s2"> to activate"</span> <span class="se">\</span>
-            -e <span class="s2">"tell application </span><span class="se">\"</span><span class="s2">iTerm</span><span class="se">\"</span><span class="s2"> to set thefile to choose folder with prompt </span><span class="se">\"</span><span class="s2">Choose a folder to place received files in</span><span class="se">\"</span><span class="s2">"</span> <span class="se">\</span>
-            -e <span class="s2">"do shell script (</span><span class="se">\"</span><span class="s2">echo </span><span class="se">\"</span><span class="s2">&amp;(quoted form of POSIX path of thefile as Unicode text)&amp;</span><span class="se">\"\"</span><span class="s2">)"</span>
+            <span class="nt">-e</span> <span class="s2">"tell application </span><span class="se">\"</span><span class="s2">iTerm</span><span class="se">\"</span><span class="s2"> to activate"</span> <span class="se">\</span>
+            <span class="nt">-e</span> <span class="s2">"tell application </span><span class="se">\"</span><span class="s2">iTerm</span><span class="se">\"</span><span class="s2"> to set thefile to choose folder with prompt </span><span class="se">\"</span><span class="s2">Choose a folder to place received files in</span><span class="se">\"</span><span class="s2">"</span> <span class="se">\</span>
+            <span class="nt">-e</span> <span class="s2">"do shell script (</span><span class="se">\"</span><span class="s2">echo </span><span class="se">\"</span><span class="s2">&amp;(quoted form of POSIX path of thefile as Unicode text)&amp;</span><span class="se">\"\"</span><span class="s2">)"</span>
     <span class="k">)</span>
     
-    <span class="k">if</span> <span class="o">[[</span> <span class="nv">$DST</span> <span class="o">=</span> <span class="s2">""</span> <span class="o">]]</span>; <span class="k">then
+    <span class="k">if</span> <span class="o">[[</span> <span class="nv">$DST</span> <span class="o">=</span> <span class="s2">""</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
         </span>cancel
         <span class="nb">echo 
     </span><span class="k">fi
@@ -305,7 +305,7 @@
 	
     notify <span class="s2">"Z-Modem started receiving file"</span>
 
-    <span class="nv">$ZCMD</span> -e -y
+    <span class="nv">$ZCMD</span> <span class="nt">-e</span> <span class="nt">-y</span>
     <span class="nb">echo 
 
     </span>notify <span class="s2">"Z-Modem finished receiving file"</span>
@@ -313,12 +313,12 @@
     <span class="c"># send a file</span>
     <span class="nv">SRC</span><span class="o">=</span><span class="k">$(</span>
         osascript <span class="se">\</span>
-            -e <span class="s2">"tell application </span><span class="se">\"</span><span class="s2">iTerm</span><span class="se">\"</span><span class="s2"> to activate"</span> <span class="se">\</span>
-            -e <span class="s2">"tell application </span><span class="se">\"</span><span class="s2">iTerm</span><span class="se">\"</span><span class="s2"> to set thefile to choose file with prompt </span><span class="se">\"</span><span class="s2">Choose a file to send</span><span class="se">\"</span><span class="s2">"</span> <span class="se">\</span>
-            -e <span class="s2">"do shell script (</span><span class="se">\"</span><span class="s2">echo </span><span class="se">\"</span><span class="s2">&amp;(quoted form of POSIX path of thefile as Unicode text)&amp;</span><span class="se">\"\"</span><span class="s2">)"</span>
+            <span class="nt">-e</span> <span class="s2">"tell application </span><span class="se">\"</span><span class="s2">iTerm</span><span class="se">\"</span><span class="s2"> to activate"</span> <span class="se">\</span>
+            <span class="nt">-e</span> <span class="s2">"tell application </span><span class="se">\"</span><span class="s2">iTerm</span><span class="se">\"</span><span class="s2"> to set thefile to choose file with prompt </span><span class="se">\"</span><span class="s2">Choose a file to send</span><span class="se">\"</span><span class="s2">"</span> <span class="se">\</span>
+            <span class="nt">-e</span> <span class="s2">"do shell script (</span><span class="se">\"</span><span class="s2">echo </span><span class="se">\"</span><span class="s2">&amp;(quoted form of POSIX path of thefile as Unicode text)&amp;</span><span class="se">\"\"</span><span class="s2">)"</span>
     <span class="k">)</span>
 
-    <span class="k">if</span> <span class="o">[[</span> <span class="nv">$SRC</span> <span class="o">=</span> <span class="s2">""</span> <span class="o">]]</span>; <span class="k">then
+    <span class="k">if</span> <span class="o">[[</span> <span class="nv">$SRC</span> <span class="o">=</span> <span class="s2">""</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
         </span>cancel
         <span class="nb">echo 
     </span><span class="k">fi
@@ -326,24 +326,24 @@
     </span>notify <span class="s2">"Z-Modem started sending
 </span><span class="nv">$SRC</span><span class="s2">"</span>
 
-    <span class="nv">$ZCMD</span> -e <span class="s2">"</span><span class="nv">$SRC</span><span class="s2">"</span>
+    <span class="nv">$ZCMD</span> <span class="nt">-e</span> <span class="s2">"</span><span class="nv">$SRC</span><span class="s2">"</span>
     <span class="nb">echo 
 
     </span>notify <span class="s2">"Z-Modem finished sending
 </span><span class="nv">$SRC</span><span class="s2">"</span>
 <span class="k">fi</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <p>首先将这个脚本写到/usr/local/bin/iterm2-zmodem文件下，给它可执行权限<code class="highlighter-rouge">chmod +x /usr/local/bin/iterm2/zmodem</code>，这个脚本是在Linux终端使用rz/sz时调用的，需要由iTerm2触发，在iTerm2-&gt;Preferences…-&gt;Profiles-&gt;Advanced下的Triggers，点击Edit进入编辑。加入如下配置即可：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Regular expression: \*\*B0100
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Regular expression: \*\*B0100
 Action:             Run Coprocess
 Parameters:         /usr/local/bin/iterm2-zmodem sz
 
 Regular expression: \*\*B00000000000000
 Action:             Run Coprocess
 Parameters:         /usr/local/bin/iterm2-zmodem rz
-</code></pre></div>
+</code></pre></div></div>
 <p>Github链接：<a href="https://github.com/Jack614/iterm2-zmodem">https://github.com/Jack614/iterm2-zmodem</a></p>
 
                     <hr>

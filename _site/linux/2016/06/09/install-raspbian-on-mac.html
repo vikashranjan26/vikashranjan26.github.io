@@ -209,7 +209,7 @@
                 <div class="ibox-content">
                     <div class="pull-right">
                     	
-                        	<button class="btn btn-white btn-xs" type="button">linux</button>
+                        	<button class="btn btn-white btn-xs" type="button">Linux</button>
                         
                     </div>
                     <div class="text-center article-title">
@@ -224,55 +224,55 @@
 
 <p>插入SD卡，使用 df 查看当前已经挂载的卷</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ df
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ df
 Filesystem    512-blocks      Used Available Capacity  iused   ifree %iused  Mounted on
 /dev/disk1     233269248 218788512  13968736    94% 27412562 1746092   94%   /
 devfs                374       374         0   100%      648       0  100%   /dev
 map -hosts             0         0         0   100%        0       0  100%   /net
 map auto_home          0         0         0   100%        0       0  100%   /home
 /dev/disk2s1    31100416      4992  31095424     1%        0       0  100%   /Volumes/Pi
-</code></pre></div>
+</code></pre></div></div>
 
 <p>因为已经命名了SD卡为 Pi ，所以SD卡的分区对应的设备文件为：/dev/disk2s1</p>
 
 <p>使用diskutil unmount卸载</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ diskutil unmount /dev/disk2s1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ diskutil unmount /dev/disk2s1
 Volume Pi on disk2s1 unmounted
-</code></pre></div>
+</code></pre></div></div>
 
 <p>diskutil list 确认设备 我买的是16G的卡</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ diskutil list
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ diskutil list
 /dev/disk2
    #:                       TYPE NAME                    SIZE       IDENTIFIER
    0:     FDisk_partition_scheme                        *15.9 GB    disk2
    1:                 DOS_FAT_32 Pi                      15.9 GB    disk2s1
-</code></pre></div>
+</code></pre></div></div>
 
 <p>使用dd命令将系统镜像写入</p>
 
 <p>PS /dev/disk2s1是分区，/dev/disk2是块设备，/dev/rdisk2是原始字符设备</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ dd bs=4m if=pi.img of=/dev/rdisk2
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dd bs=4m if=pi.img of=/dev/rdisk2
 781+1 records in
 781+1 records out
 3276800000 bytes transferred in 194.134151 secs (16879050 bytes/sec)
-</code></pre></div>
+</code></pre></div></div>
 
 <p>至此，SD卡上已经刷入了 Raspbian 系统</p>
 
 <p>再用diskutil unmountDisk卸载设备</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$ diskutil unmountDisk /dev/disk2
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ diskutil unmountDisk /dev/disk2
 Unmount of all volumes on disk2 was successful
-</code></pre></div>
+</code></pre></div></div>
 
 <h2 id="2配置wifi">2、配置WiFi</h2>
 
 <p>树莓派自带WiFi，在启动系统之后，我们可以通过<code class="highlighter-rouge">ip a</code>命令看到wlan0网卡，下面是修改<code class="highlighter-rouge">/etc/network/interfaces.d</code>配置文件：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># interfaces(5) file used by ifup(8) and ifdown(8)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># interfaces(5) file used by ifup(8) and ifdown(8)
 
 # Please note that this file is written to be used with dhcpcd
 # For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
@@ -295,11 +295,11 @@ iface default inet dhcp
 allow-hotplug wlan1
 iface wlan1 inet manual
     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-</code></pre></div>
+</code></pre></div></div>
 
 <p>也可以配成静态网络</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># interfaces(5) file used by ifup(8) and ifdown(8)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># interfaces(5) file used by ifup(8) and ifdown(8)
 
 # Please note that this file is written to be used with dhcpcd
 # For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
@@ -326,11 +326,11 @@ iface default inet dhcp
 allow-hotplug wlan1
 iface wlan1 inet manual
     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-</code></pre></div>
+</code></pre></div></div>
 
 <p>重启<code class="highlighter-rouge">init 6</code>即可（需要root权限）。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pi@raspberrypi:~ $ ip a
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pi@raspberrypi:~ $ ip a
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -347,7 +347,7 @@ iface wlan1 inet manual
        valid_lft forever preferred_lft forever
     inet6 fe80::c52e:80ca:79e2:ebb5/64 scope link
        valid_lft forever preferred_lft forever
-</code></pre></div>
+</code></pre></div></div>
 
                     <hr>
                     <div class="row">

@@ -209,7 +209,7 @@
                 <div class="ibox-content">
                     <div class="pull-right">
                     	
-                        	<button class="btn btn-white btn-xs" type="button">linux</button>
+                        	<button class="btn btn-white btn-xs" type="button">Linux</button>
                         
                     </div>
                     <div class="text-center article-title">
@@ -222,30 +222,30 @@
 
 <p>jdk和tomcat</p>
 
-<p>java位置：<br />
-ls /data/java/jdk1.7.0_15/<br />
-tomcat位置：<br />
+<p>java位置：
+ls /data/java/jdk1.7.0_15/
+tomcat位置：
 ls /data/tomcat/apache-tomcat-7.0.37/</p>
 
 <p>Java环境</p>
 
 <p>增加java环境变量：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[root@cms ~]# tail /etc/profile -n 6
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@cms ~]# tail /etc/profile -n 6
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>export JAVA_HOME=/data/java/jdk1.7.0_15
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export JAVA_HOME=/data/java/jdk1.7.0_15
 PATH=$JAVA_HOME/bin:$PATH
 CLASSPATH=$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:.
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/apr/lib
 export JAVA_HOME PATH CLASSPATH
 RUN_AS_USER=root
-</code></pre></div>
+</code></pre></div></div>
 
 <p>然后执行</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>source /etc/profile
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source /etc/profile
+</code></pre></div></div>
 
 <p>即可运行tomcat。</p>
 

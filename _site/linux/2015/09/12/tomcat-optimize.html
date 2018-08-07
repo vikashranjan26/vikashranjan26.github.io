@@ -209,7 +209,7 @@
                 <div class="ibox-content">
                     <div class="pull-right">
                     	
-                        	<button class="btn btn-white btn-xs" type="button">linux</button>
+                        	<button class="btn btn-white btn-xs" type="button">Linux</button>
                         
                     </div>
                     <div class="text-center article-title">
@@ -218,20 +218,20 @@
                             tomcat配置优化参数
                         </h1>
                     </div>
-                    	<div class="highlighter-rouge"><pre class="highlight"><code>export LD_LIBRARY_PATH=/home/opt/tools/apr/lib
+                    	<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export LD_LIBRARY_PATH=/home/opt/tools/apr/lib
 JAVA_OPTS="-server -XX:PermSize=128M -XX:MaxPermSize=256m -Xms1g -Xmx1g -Xmn500m -XX:SurvivorRatio=65536 -XX:MaxTenuringThreshold=0 -XX:+UseParNewGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:CMSFullGCsBeforeCompaction=0 -Duser.timezone=Asia/Shanghai"
-</code></pre></div>
+</code></pre></div></div>
 
 <h4 id="tomcat启动行参数的优化">Tomcat启动行参数的优化</h4>
 
 <p>Tomcat 的启动参数位于tomcat的安装目录\bin目录下，如果你是Linux操作系统就是catalina.sh文件，如果你是Windows操作系统那么你需要改动的就是catalina.bat文件。打开该文件，一般该文件头部是一堆的由##包裹着的注释文字，找到注释文字的最后一段如：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># $Id: catalina.sh 522797 2007-03-27 07:10:29Z fhanik $
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># $Id: catalina.sh 522797 2007-03-27 07:10:29Z fhanik $
 # -----------------------------------------------------------------------------
  
 # OS specific support.  $var _must_ be set to either true or false.
 
-</code></pre></div>
+</code></pre></div></div>
 
 <p>敲入一个回车，加入如下的参数</p>
 
@@ -239,15 +239,15 @@ JAVA_OPTS="-server -XX:PermSize=128M -XX:MaxPermSize=256m -Xms1g -Xmx1g -Xmn500m
   <li>Linux系统中tomcat的启动参数</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>export JAVA_OPTS="-server -Xms1400M -Xmx1400M -Xss512k -XX:+AggressiveOpts -XX:+UseBiasedLocking -XX:PermSize=128M -XX:MaxPermSize=256M -XX:+DisableExplicitGC -XX:MaxTenuringThreshold=31 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC  -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m  -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -Djava.awt.headless=true "
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export JAVA_OPTS="-server -Xms1400M -Xmx1400M -Xss512k -XX:+AggressiveOpts -XX:+UseBiasedLocking -XX:PermSize=128M -XX:MaxPermSize=256M -XX:+DisableExplicitGC -XX:MaxTenuringThreshold=31 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC  -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m  -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -Djava.awt.headless=true "
+</code></pre></div></div>
 
 <ul>
   <li>Windows系统中tomcat的启动参数</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>set JAVA_OPTS=-server -Xms1400M -Xmx1400M -Xss512k -XX:+AggressiveOpts -XX:+UseBiasedLocking -XX:PermSize=128M -XX:MaxPermSize=256M -XX:+DisableExplicitGC -XX:MaxTenuringThreshold=31 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC  -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m  -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -Djava.awt.headless=true
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set JAVA_OPTS=-server -Xms1400M -Xmx1400M -Xss512k -XX:+AggressiveOpts -XX:+UseBiasedLocking -XX:PermSize=128M -XX:MaxPermSize=256M -XX:+DisableExplicitGC -XX:MaxTenuringThreshold=31 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC  -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m  -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -Djava.awt.headless=true
+</code></pre></div></div>
 
 <p>上面参数好多啊，可能有人写到现在都没见一个tomcat的启动命令里加了这么多参数，当然，这些参数只是我机器上的，不一定适合你，尤其是参数后的value（值）是需要根据你自己的实际情况来设置的。</p>
 
@@ -427,12 +427,12 @@ JAVA_OPTS="-server -XX:PermSize=128M -XX:MaxPermSize=256m -Xms1g -Xmx1g -Xmn500m
 
 <p>打开tomcat安装目录\conf\server.xml文件，定位到这一行：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;Connector port="8080" protocol="HTTP/1.1"
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Connector port="8080" protocol="HTTP/1.1"
+</code></pre></div></div>
 
 <p>这一行就是我们的tomcat容器性能参数设置的地方，它一般都会有一个默认值，这些默认值是远远不够我们的使用的，我们来看经过更改后的这一段的配置：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;Connector port="8080" protocol="HTTP/1.1"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Connector port="8080" protocol="HTTP/1.1"
           URIEncoding="UTF-8"  minSpareThreads="25" maxSpareThreads="75"
           enableLookups="false" disableUploadTimeout="true" connectionTimeout="20000"
           acceptCount="300"  maxThreads="300" maxProcessors="1000" minProcessors="5"
@@ -441,7 +441,7 @@ JAVA_OPTS="-server -XX:PermSize=128M -XX:MaxPermSize=256m -Xms1g -Xmx1g -Xmn500m
                                                compressableMimeType="text/html,text/xml,text/javascript,text/css,text/plain"
                redirectPort="8443"
 /&gt;
-</code></pre></div>
+</code></pre></div></div>
 
 <p>好大一陀唉。。。。。。</p>
 
@@ -501,7 +501,7 @@ JAVA_OPTS="-server -XX:PermSize=128M -XX:MaxPermSize=256m -Xms1g -Xmx1g -Xmn500m
 
 <p>我们来看一下tomcat中的一段源码：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>security
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>security
         if (connector.getUseURIValidationHack()) {
             String uri = validate(request.getRequestURI());
             if (uri == null) {
@@ -515,7 +515,7 @@ JAVA_OPTS="-server -XX:PermSize=128M -XX:MaxPermSize=256m -Xms1g -Xmx1g -Xmn500m
                 req.getURLDecoder().convert(req.decodedURI(), true);
             }
         }
-</code></pre></div>
+</code></pre></div></div>
 
 <p>可以看到如果把useURIValidationHack设成”false”，可以减少它对一些url的不必要的检查从而减省开销。</p>
 
@@ -535,9 +535,9 @@ JAVA_OPTS="-server -XX:PermSize=128M -XX:MaxPermSize=256m -Xms1g -Xmx1g -Xmn500m
   <li>给Tomcat配置gzip压缩(HTTP压缩)功能</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>compression="on" compressionMinSize="2048"             
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compression="on" compressionMinSize="2048"             
 compressableMimeType="text/html,text/xml,text/javascript,text/css,text/plain"
-</code></pre></div>
+</code></pre></div></div>
 
 <p>HTTP 压缩可以大大提高浏览网站的速度，它的原理是，在客户端请求网页后，从服务器端将网页文件压缩，再下载到客户端，由客户端的浏览器负责解压缩并浏览。相对于普通的浏览过程HTML,CSS,Javascript , Text ，它可以节省40%左右的流量。更为重要的是，它可以对动态生成的，包括CGI、PHP , JSP , ASP , Servlet,SHTML等输出的网页也能进行压缩，压缩效率惊人。</p>
 
@@ -558,7 +558,7 @@ compressableMimeType="text/html,text/xml,text/javascript,text/css,text/plain"
 
 <p>最后不要忘了把8443端口的地方也加上同样的配置，因为如果我们走https协议的话，我们将会用到8443端口这个段的配置，对吧？</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;!--enable tomcat ssl--&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!--enable tomcat ssl--&gt;
     &lt;Connector port="8443" protocol="HTTP/1.1"
                URIEncoding="UTF-8"  minSpareThreads="25" maxSpareThreads="75"
           enableLookups="false" disableUploadTimeout="true" connectionTimeout="20000"
@@ -571,7 +571,7 @@ compressableMimeType="text/html,text/xml,text/javascript,text/css,text/plain"
            clientAuth="false" sslProtocol="TLS"
            keystoreFile="d:/tomcat2/conf/shnlap93.jks" keystorePass="aaaaaa"
       /&gt;
-</code></pre></div>
+</code></pre></div></div>
 
 <p>好了，所有的Tomcat优化的地方都加上了。结合第三天中的Apache的性能优化，我们这个架构可以“飞奔”起来了，当然这边把有提及任何关于数据库优化的步骤，但仅凭这两步，我们的系统已经有了很大的提升。</p>
 
